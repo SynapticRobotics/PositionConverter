@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanucUtilities", "..\..\BoundaryChecker\FanucUtilities\FanucUtilities.csproj", "{D311338F-7C46-4E1C-878E-AF6B9F9E1C37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PositionConverter", "PositionConverter.csproj", "{86806C77-A388-4250-AA11-98718A22153E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D311338F-7C46-4E1C-878E-AF6B9F9E1C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D311338F-7C46-4E1C-878E-AF6B9F9E1C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D311338F-7C46-4E1C-878E-AF6B9F9E1C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D311338F-7C46-4E1C-878E-AF6B9F9E1C37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86806C77-A388-4250-AA11-98718A22153E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86806C77-A388-4250-AA11-98718A22153E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86806C77-A388-4250-AA11-98718A22153E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86806C77-A388-4250-AA11-98718A22153E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A0DBD64-F7D1-4748-9A16-F8D43C5D72E8}
+	EndGlobalSection
+EndGlobal
