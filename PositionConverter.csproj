@@ -76,6 +76,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -91,6 +92,7 @@
     <Compile Include="FanucPoint.cs" />
     <Compile Include="FanucProgram.cs" />
     <Compile Include="FanucRobot.cs" />
+    <Compile Include="RobotConfiguration.cs" />
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +143,9 @@
     <None Include="Instructions\Instructions.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="RobotConfiguration.README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="PositionConverter_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -173,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\R2000iC Side View.png" />
+    <Content Include="RobotConfigurations.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

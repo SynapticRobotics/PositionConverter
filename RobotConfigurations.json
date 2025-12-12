@@ -1,0 +1,337 @@
+{
+  "robots": [
+    {
+      "name": "R-1000iA/80F",
+      "matchPattern": "R-1000",
+      "specificPattern": "80F",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 320.0,
+        "j2LinkA": 870.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1015.0,
+        "facePlateThickness": 175.0
+      }
+    },
+    {
+      "name": "R-1000iA/80F-IF",
+      "matchPattern": "R-1000",
+      "specificPattern": "80F-IF",
+      "dhParameters": {
+        "j1LinkA": 320.0,
+        "j2LinkA": 870.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1015.0,
+        "facePlateThickness": 198.0
+      }
+    },
+    {
+      "name": "R-1000iA/100F",
+      "matchPattern": "R-1000",
+      "specificPattern": "100F",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 320.0,
+        "j2LinkA": 870.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1015.0,
+        "facePlateThickness": 190.0
+      }
+    },
+    {
+      "name": "R-1000iA/100F-IF",
+      "matchPattern": "R-1000",
+      "specificPattern": "100F-IF",
+      "dhParameters": {
+        "j1LinkA": 320.0,
+        "j2LinkA": 870.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1015.0,
+        "facePlateThickness": 213.0
+      }
+    },
+    {
+      "name": "R-2000iB/125L",
+      "matchPattern": "R-2000iB",
+      "specificPattern": "125L",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1635.0,
+        "facePlateThickness": 215.0
+      }
+    },
+    {
+      "name": "R-2000iB/125L-IF",
+      "matchPattern": "R-2000iB",
+      "specificPattern": "125L-IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1635.0,
+        "facePlateThickness": 238.0
+      }
+    },
+    {
+      "name": "R-2000iB/165F",
+      "matchPattern": "R-2000iB",
+      "specificPattern": "165F",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 215.0
+      }
+    },
+    {
+      "name": "R-2000iB/165F-IF",
+      "matchPattern": "R-2000iB",
+      "specificPattern": "165F-IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 238.0
+      }
+    },
+    {
+      "name": "R-2000iB/210F",
+      "matchPattern": "R-2000iB",
+      "specificPattern": "210F",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 235.0
+      }
+    },
+    {
+      "name": "R-2000iB/210F-IF",
+      "matchPattern": "R-2000iB",
+      "specificPattern": "210F-IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 258.0
+      }
+    },
+    {
+      "name": "R-2000iC/125L",
+      "matchPattern": "R-2000iC",
+      "specificPattern": "125L",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1730.0,
+        "facePlateThickness": 215.0
+      }
+    },
+    {
+      "name": "R-2000iC/125L-IF",
+      "matchPattern": "R-2000iC",
+      "specificPattern": "125L-IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1730.0,
+        "facePlateThickness": 238.0
+      }
+    },
+    {
+      "name": "R-2000iC/165F",
+      "matchPattern": "R-2000iC",
+      "specificPattern": "165F",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 215.0
+      }
+    },
+    {
+      "name": "R-2000iC/165F-IF",
+      "matchPattern": "R-2000iC",
+      "specificPattern": "165F-IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 238.0
+      }
+    },
+    {
+      "name": "R-2000iC/210F",
+      "matchPattern": "R-2000iC",
+      "specificPattern": "210F",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 215.0
+      }
+    },
+    {
+      "name": "R-2000iC/210F-IF",
+      "matchPattern": "R-2000iC",
+      "specificPattern": "210F-IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 233.0
+      }
+    },
+    {
+      "name": "R-2000iA/165F",
+      "matchPattern": "R-2000i",
+      "specificPattern": "165F",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 215.0
+      }
+    },
+    {
+      "name": "R-2000iA/165F-IF",
+      "matchPattern": "R-2000i",
+      "specificPattern": "165F-IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1280.0,
+        "facePlateThickness": 238.0
+      }
+    },
+    {
+      "name": "R-2000iA/200F",
+      "matchPattern": "R-2000i",
+      "specificPattern": "200F",
+      "excludePattern": "IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1110.0,
+        "facePlateThickness": 260.0
+      }
+    },
+    {
+      "name": "R-2000iA/200F-IF",
+      "matchPattern": "R-2000i",
+      "specificPattern": "200F-IF",
+      "dhParameters": {
+        "j1LinkA": 312.0,
+        "j2LinkA": 1075.0,
+        "j3LinkA": 225.0,
+        "j4LinkD": 1110.0,
+        "facePlateThickness": 275.0
+      }
+    },
+    {
+      "name": "ARC Mate 120iC / M-20iA",
+      "matchPattern": "ARC Mate 120iC",
+      "dhParameters": {
+        "j1LinkA": 150.0,
+        "j2LinkA": 790.0,
+        "j3LinkA": 250.0,
+        "j4LinkD": 835.0,
+        "facePlateThickness": 100.0
+      }
+    },
+    {
+      "name": "M-710iC/12L",
+      "matchPattern": "M-710",
+      "specificPattern": "12L",
+      "dhParameters": {
+        "j1LinkA": 150.0,
+        "j2LinkA": 1150.0,
+        "j3LinkA": 255.0,
+        "j4LinkD": 1805.0,
+        "facePlateThickness": 100.0
+      }
+    },
+    {
+      "name": "M-710iC/20L",
+      "matchPattern": "M-710",
+      "specificPattern": "20L",
+      "dhParameters": {
+        "j1LinkA": 150.0,
+        "j2LinkA": 1150.0,
+        "j3LinkA": 190.0,
+        "j4LinkD": 1800.0,
+        "facePlateThickness": 100.0
+      }
+    },
+    {
+      "name": "M-710iC/20M",
+      "matchPattern": "M-710",
+      "specificPattern": "20M",
+      "dhParameters": {
+        "j1LinkA": 150.0,
+        "j2LinkA": 870.0,
+        "j3LinkA": 190.0,
+        "j4LinkD": 1550.0,
+        "facePlateThickness": 100.0
+      }
+    },
+    {
+      "name": "M-710iC/45M",
+      "matchPattern": "M-710",
+      "specificPattern": "45M",
+      "dhParameters": {
+        "j1LinkA": 150.0,
+        "j2LinkA": 1150.0,
+        "j3LinkA": 170.0,
+        "j4LinkD": 1295.0,
+        "facePlateThickness": 175.0
+      }
+    },
+    {
+      "name": "M-710iC/50",
+      "matchPattern": "M-710",
+      "specificPattern": "50",
+      "dhParameters": {
+        "j1LinkA": 150.0,
+        "j2LinkA": 870.0,
+        "j3LinkA": 170.0,
+        "j4LinkD": 1016.0,
+        "facePlateThickness": 175.0
+      }
+    },
+    {
+      "name": "M-710iC/70",
+      "matchPattern": "M-710",
+      "specificPattern": "70",
+      "dhParameters": {
+        "j1LinkA": 150.0,
+        "j2LinkA": 870.0,
+        "j3LinkA": 170.0,
+        "j4LinkD": 1016.0,
+        "facePlateThickness": 175.0
+      }
+    }
+  ]
+}

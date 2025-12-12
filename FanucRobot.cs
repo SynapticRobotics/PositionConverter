@@ -321,125 +321,51 @@ namespace FanucUtilities
                 result = Math.Acos((Math.Pow(J3aJ4dLinkLength, 2.0)+Math.Pow(J2a,2.0)-Math.Pow(distJ2toWC, 2.0)) / (2.0* J3aJ4dLinkLength* J2a))+Math.Acos(J4d / J3aJ4dLinkLength);
                 return result;
             }
-            bool throwEx=false;
-            //Set the DH Parameters.
-            if (robotType.Contains("R-1000"))
-            {
-                j1LinkA = 320.0;
-                j2LinkA = 870.0;
-                j3LinkA = 225.0;
-                j4LinkD = 1015.0;
-                if (robotType.Contains("80F-IF")) { facePlateThickness = 198.0; }
-                else if (robotType.Contains("80F")) { facePlateThickness = 175.0; }
-                else if (robotType.Contains("100F-IF")) { facePlateThickness = 213.0; }
-                else if (robotType.Contains("100F")) { facePlateThickness = 190.0; }
-                else { throwEx = true; }
-            }
-            else if (robotType.Contains("R-2000iB"))
-            {
-                j1LinkA = 312.0;
-                j2LinkA = 1075.0;
-                j3LinkA = 225.0;
-                j4LinkD = 1280.0;
-                if (robotType.Contains("125L-IF")) { j4LinkD = 1635.0; facePlateThickness = 238.0; }
-                else if (robotType.Contains("125L")) { j4LinkD = 1635.0; facePlateThickness = 215.0; }
-                else if (robotType.Contains("165F-IF")) { facePlateThickness = 238.0; } //TODO: Check this.
-                else if (robotType.Contains("165F")) { facePlateThickness = 215.0; }
-                else if (robotType.Contains("210F-IF")) { facePlateThickness = 258; }
-                else if (robotType.Contains("210F")) { facePlateThickness = 235.0; }
-                else { throwEx = true; }
-            }
-            else if (robotType.Contains("R-2000iC"))
-            {
-                j1LinkA = 312.0;
-                j2LinkA = 1075.0;
-                j3LinkA = 225.0;
-                j4LinkD = 1280.0;
-                if (robotType.Contains("125L-IF")) { j4LinkD = 1730.0; facePlateThickness = 238.0; } //unverified
-                else if (robotType.Contains("125L")) { j4LinkD = 1730.0; facePlateThickness = 215.0; } //unverified
-                else if (robotType.Contains("165F-IF")) { facePlateThickness = 238.0; } //TODO: Check this.
-                else if (robotType.Contains("165F")) { facePlateThickness = 215.0; }
-                else if (robotType.Contains("210F-IF")) { facePlateThickness = 233.0; }
-                else if (robotType.Contains("210F")) { facePlateThickness = 215.0; }
-                else { throwEx = true; }
-            }
-            else if (robotType.Contains("R-2000i")) //R2000iAs show up as this.
-            {
-                j1LinkA = 312.0;
-                j2LinkA = 1075.0;
-                j3LinkA = 225.0;
-                j4LinkD = 1280.0;
-                if (robotType.Contains("165F-IF")) { facePlateThickness = 238.0; }
-                else if (robotType.Contains("165F")) { facePlateThickness = 215.0; }
-                else if (robotType.Contains("200F-IF")) { j4LinkD = 1110.0; facePlateThickness = 275.0; }
-                else if (robotType.Contains("200F")) { j4LinkD = 1110.0; facePlateThickness = 260.0; }
-                else { throwEx = true; }
-            }
-            else if (robotType.Contains("ARC Mate 120iC"))
-            {
-                j1LinkA = 150.0;
-                j2LinkA = 790.0;
-                j3LinkA = 250.0;
-                j4LinkD = 835.0;
-                facePlateThickness = 100.0;
-            }
-            else if (robotType.Contains("M-710"))
-            {
-                j1LinkA = 150.0;
 
-                if (robotType.Contains("12L"))
-                {
-                    j2LinkA = 1150.0;
-                    j3LinkA = 255.0;
-                    j4LinkD = 1805.0;
-                    facePlateThickness = 100.0;
-                }
-                else if (robotType.Contains("20L"))
-                {
-                    j2LinkA = 1150.0;
-                    j3LinkA = 190.0;
-                    j4LinkD = 1800.0;
-                    facePlateThickness = 100.0;
-                }
-                else if (robotType.Contains("20M"))
-                {
-                    j2LinkA = 870.0;
-                    j3LinkA = 190.0;
-                    j4LinkD = 1550.0;
-                    facePlateThickness = 100.0;
-                }
-                else if (robotType.Contains("45M"))
-                {
-                    j2LinkA = 1150;
-                    j3LinkA = 170.0;
-                    j4LinkD = 1295.0;
-                    facePlateThickness = 175.0;
-                }
-                else if (robotType.Contains("50") | robotType.Contains("70"))
-                {
-                    j2LinkA = 870.0;
-                    j3LinkA = 170.0;
-                    j4LinkD = 1016.0;
-                    facePlateThickness = 175.0;
-                }
-                else { throwEx = true; }
-            }
-            else if (robotType.Contains("CUSTOM"))
+            // Special case for CUSTOM robot type - DH parameters will be set manually via SetDHForm
+            if (robotType.Contains("CUSTOM"))
             {
-                //Set DH Form will set the link lengths directly. Just make sure we don't throw an exception
-                throwEx = false;
-            }
-            else
-            {
-                throwEx = true;
+                // Set DH Form will set the link lengths directly. Just initialize matrices and return
+                for (int i=0; i < 256; i++)
+                {
+                    uTools[i] = Matrix<double>.Build.DenseIdentity(4, 4);
+                    uFrames[i] = Matrix<double>.Build.DenseIdentity(4, 4);
+                }
+                for (int i=0; i< 7; i++)
+                {
+                    lntkFrames[i] = Matrix<double>.Build.DenseIdentity(4, 4);
+                }
+                return;
             }
 
-            if (throwEx) { throw new System.ArgumentException("Unsupported Fanuc Robot Type. Got: " + robotType); }
+            // Load DH Parameters from configuration file
+            try
+            {
+                DHParameters dhParams = RobotConfigurationLoader.FindRobotConfiguration(robotType);
+
+                // Set the DH Parameters from config
+                j1LinkA = dhParams.j1LinkA;
+                j2LinkA = dhParams.j2LinkA;
+                j3LinkA = dhParams.j3LinkA;
+                j4LinkD = dhParams.j4LinkD;
+                facePlateThickness = dhParams.facePlateThickness;
+            }
+            catch (ArgumentException ex)
+            {
+                // Robot type not found in configuration
+                throw new System.ArgumentException($"Unsupported Fanuc Robot Type: {robotType}. {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                // Other errors (file not found, parsing errors, etc.)
+                throw new Exception($"Failed to load robot configuration for {robotType}: {ex.Message}", ex);
+            }
 
             //These are used in the computeIK method.
             j3AtZero = ComputeJ3AtZero(j1LinkA, j2LinkA, j3LinkA, j4LinkD);
             j3LinkLength = Math.Sqrt(j3LinkA * j3LinkA + j4LinkD * j4LinkD);
             maxReachable = j1LinkA + j2LinkA + j3LinkLength;
+
             //Set the Uframes and Utools to identity matricies.
             for (int i=0; i < 256; i++)
             {

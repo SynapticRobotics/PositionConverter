@@ -32,6 +32,9 @@ PositionConverter/
 ├── FanucMath.cs                    # Kinematic calculations and conversions
 ├── FanucPoint.cs                   # Point data structure and handling
 ├── FanucProgram.cs                 # TP program parsing and manipulation
+├── RobotConfiguration.cs           # Robot config loader and management
+├── RobotConfigurations.json        # Robot DH parameters database (user-editable)
+├── RobotConfiguration.README.md    # Guide for adding new robot models
 ├── Program.cs                      # Application entry point
 ├── Icon/                           # Application icons
 ├── Images/                         # Robot reference images
@@ -73,9 +76,15 @@ PositionConverter/
 
 ### FanucRobot
 - Stores robot model information
-- Manages Denavit-Hartenberg (DH) parameters
+- Loads Denavit-Hartenberg (DH) parameters from configuration file
 - Handles user frames (UFRAME) and user tools (UTOOL)
 - Provides robot-specific kinematic data
+
+### RobotConfiguration
+- Loads and manages robot configurations from JSON file
+- Provides pattern-matching logic to identify robot models
+- Supports user-editable robot definitions without code changes
+- Thread-safe singleton pattern for configuration loading
 
 ### FanucMath
 - Forward kinematics (Joint → XYZWPR)
@@ -114,16 +123,40 @@ PositionConverter/
 - Configuration flags (NUT/FUT) significantly affect inverse kinematics solutions
 
 ### When Adding Robot Support
-1. Add DH parameters in `FanucRobot.cs`
-2. Verify joint limits for the specific model
-3. Test with actual backup files from that robot model
-4. Update supported models list in documentation
+**DH parameters are now configured via JSON file - no code changes needed!**
+
+1. Edit `RobotConfigurations.json` and add a new robot entry with DH parameters
+2. Define pattern matching rules (matchPattern, specificPattern, excludePattern)
+3. Verify joint limits for the specific model (if needed, update backup parsing)
+4. Test with actual backup files from that robot model
+5. See `RobotConfiguration.README.md` for detailed instructions
 
 ### When Modifying Conversions
 - Test accuracy against Fanuc controller conversions
 - Verify all configuration types still work
 - Check boundary conditions (singularities, joint limits)
 - Ensure error handling provides clear user feedback
+
+## Robot Configuration System
+
+### Configuration File (RobotConfigurations.json)
+- **Location**: Same directory as executable
+- **Format**: JSON with robot definitions and DH parameters
+- **Purpose**: Allows users to add robot support without modifying code
+- **Pattern Matching**: Uses matchPattern, specificPattern, and excludePattern for robot identification
+- **Thread-Safe**: Configuration loaded once and cached in memory
+- **Extensible**: Users can add custom robot models by editing the JSON file
+
+### How to Add a New Robot Model
+1. Open `RobotConfigurations.json` in a text editor
+2. Add a new entry with the robot's name, pattern matching rules, and DH parameters
+3. Save the file and restart the application
+4. See `RobotConfiguration.README.md` for detailed instructions and examples
+
+### Configuration Classes
+- **RobotConfigurationLoader**: Static loader with singleton pattern, pattern matching logic
+- **RobotConfig**: Represents a single robot configuration entry
+- **DHParameters**: Contains j1LinkA, j2LinkA, j3LinkA, j4LinkD, facePlateThickness
 
 ## File Formats
 
